@@ -1,0 +1,14 @@
+ programa 
+{ 
+	funcao inicio () 
+	{
+		escreva("Acordando \n")
+		escreva("Abrindo os olhos \n")
+		escreva("Destapar\n")
+		escreva("Levantar\n")
+		escreva("Ir ao banheiro\n")
+		escreva("Iniciar dia\n")
+
+	}
+
+}
