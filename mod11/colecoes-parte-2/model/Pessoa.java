@@ -1,6 +1,6 @@
 package model;
 
-public class Pessoa {
+public class Pessoa implements Comparable<Pessoa>{
     private String nome;
     private String sexo;
 
@@ -24,4 +24,10 @@ public class Pessoa {
     public String toString() {
         return "O nome da pessoa é: " + this.nome;
     }
+
+    @Override
+    public int compareTo(Pessoa outraPessoa) {
+        return this.nome.compareTo(outraPessoa.getNome());
+    }
+
 }

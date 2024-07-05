@@ -1,6 +1,5 @@
-import java.util.ArrayList;
-import java.util.Scanner;
-import java.util.stream.Stream;
+import java.util.*;
+import java.util.stream.Collectors;
 
 import model.Pessoa;
 
@@ -9,6 +8,7 @@ public class Colecao {
         int funcao;
         String nome="";
         ArrayList<Pessoa> pessoas = new ArrayList<>();
+        List<Pessoa> pessoasOrdenadas;
         Scanner sc = new Scanner(System.in);
         Pessoa p1 = new Pessoa();
         do {
@@ -16,7 +16,7 @@ public class Colecao {
             System.out.println("1 - Para cadastrar uma pessoa do Sexo Masculino");
             System.out.println("2 - Para cadastrar uma pessoa do Sexo Feminino");
             System.out.println("3 - Listar pessoas do Sexo Masculino");           
-            System.out.println("4 - Listar pessoas do Sexo Masculino");
+            System.out.println("4 - Listar pessoas do Sexo Feminino");
             System.out.println("0 - Sair");
             System.out.println("---------------------------------------");
             funcao = sc.nextInt();
@@ -40,19 +40,15 @@ public class Colecao {
                     break;
                 case 3:
                     System.out.println("As pessoas do sexo Masculino são: "); 
-                    for (int i = 0; i < pessoas.size(); i++) {
-                        if ( pessoas.get(i).getSexo().equals("masculino") ) {
-                            System.out.println(pessoas.get(i).getNome());
-                        }
-                    }
+                    pessoasOrdenadas = pessoas.stream().filter(pessoa -> pessoa.getSexo().equals("masculino")).collect(Collectors.toList());
+                    pessoasOrdenadas.forEach(System.out::println);
+                    pessoasOrdenadas.clear();
                     break;
                 case 4:
                     System.out.println("As pessoas do sexo Feminino são: ");                    
-                    for (int i = 0; i < pessoas.size(); i++) {
-                        if ( pessoas.get(i).getSexo().equals("feminino") ) {
-                            System.out.println(pessoas.get(i).getNome());
-                        }
-                    }
+                    pessoasOrdenadas = pessoas.stream().filter(pessoa -> pessoa.getSexo().equals("feminino")).collect(Collectors.toList());
+                    pessoasOrdenadas.forEach(System.out::println);
+                    pessoasOrdenadas.clear();
                     break;
                 case 0:
                     System.exit(1);
